@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Accountability Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 24px 16px;
+  }
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .dashboard-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .dashboard-header .updated {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 4px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .agent-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .agent-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .agent-meta {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .chart-wrap {
+    height: 180px;
+    margin-bottom: 20px;
+  }
+  .week-label {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .kpi {
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 4px;
+  }
+  .kpi-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2563eb;
+  }
+  .kpi-lbl {
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
+  .daily-detail summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #64748b;
+    padding: 4px 0;
+    user-select: none;
+  }
+  .daily-detail summary:hover { color: #2563eb; }
+  .daily-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  .daily-table th {
+    background: #f1f5f9;
+    padding: 6px 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+  }
+  .daily-table td {
+    padding: 6px 8px;
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="dashboard-header">
+  <h1>Agent Accountability Dashboard</h1>
+  <div class="updated">Updated May 02, 2026 at 03:29 PM PT &nbsp;·&nbsp; Showing completed weeks only</div>
+</div>
+<div class="grid">
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Sue</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_sue"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">11</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td>Wed 4/22</td>
+              <td>8</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Fri 4/24</td>
+              <td>3</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_sue').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "4/13", "4/20"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [1, 10, 8, 19, 18, 12, 17, 9, 3, 14, 9, 21, 11],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Chase</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_chase"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">27</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td>Mon 4/20</td>
+              <td>12</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Tue 4/21</td>
+              <td>6</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Wed 4/22</td>
+              <td>9</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_chase').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [3, 17, 8, 20, 15, 12, 20, 18, 19, 13, 16, 8, 21, 23, 30, 27],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Bob</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_bob"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_bob').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [11, 16, 40, 77, 52, 43, 14, 75, 99, 52, 61, 6],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Marie</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_marie"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">83</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td>Tue 4/21</td>
+              <td>6</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Thu 4/23</td>
+              <td>67</td>
+              <td>1</td>
+              <td>2</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Fri 4/24</td>
+              <td>6</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Sun 4/26</td>
+              <td>4</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+            </tr></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_marie').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [6, 31, 7, 16, 28, 10, 31, 30, 24, 35, 12, 22, 31, 3, 63, 83],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Laura</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_laura"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">9</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td>Fri 4/24</td>
+              <td>9</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_laura').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/16", "4/20"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [5, 27, 25, 42, 31, 21, 33, 14, 12, 8, 9],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+        <div class="agent-card">
+          <div class="agent-header">
+            <span class="agent-name">Patricia</span>
+            <span class="agent-meta">Weekly Contacts Trendline</span>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="chart_patricia"></canvas>
+          </div>
+
+          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+          </div>
+
+          <details class="daily-detail">
+            <summary>Daily Breakdown</summary>
+            <table class="daily-table">
+              <thead>
+                <tr>
+                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
+                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </details>
+
+          <script>
+            (function() {
+              const ctx = document.getElementById('chart_patricia').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23"],
+                  datasets: [{
+                    label: 'Contacts',
+                    data: [2, 58, 32, 58, 15, 29, 14, 22],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb',
+                    tension: 0.3,
+                    fill: true
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                  },
+                  scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
+                    x: { grid: { display: false } }
+                  }
+                }
+              });
+            })();
+          </script>
+        </div>
+        
+</div>
+</body>
+</html>

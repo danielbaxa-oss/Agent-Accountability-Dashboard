@@ -127,7 +127,7 @@
 <body>
 <div class="dashboard-header">
   <h1>Agent Accountability Dashboard</h1>
-  <div class="updated">Updated May 02, 2026 at 03:29 PM PT &nbsp;·&nbsp; Showing completed weeks only</div>
+  <div class="updated">Updated May 02, 2026 at 03:35 PM PT &nbsp;·&nbsp; Showing completed weeks only</div>
 </div>
 <div class="grid">
 
@@ -541,75 +541,6 @@
                   datasets: [{
                     label: 'Contacts',
                     data: [5, 27, 25, 42, 31, 21, 33, 14, 12, 8, 9],
-                    borderColor: '#2563eb',
-                    backgroundColor: 'rgba(37,99,235,0.08)',
-                    borderWidth: 2.5,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#2563eb',
-                    tension: 0.3,
-                    fill: true
-                  }]
-                },
-                options: {
-                  responsive: true,
-                  plugins: {
-                    legend: { display: false },
-                    tooltip: { mode: 'index', intersect: false }
-                  },
-                  scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.06)' } },
-                    x: { grid: { display: false } }
-                  }
-                }
-              });
-            })();
-          </script>
-        </div>
-        
-        <div class="agent-card">
-          <div class="agent-header">
-            <span class="agent-name">Patricia</span>
-            <span class="agent-meta">Weekly Contacts Trendline</span>
-          </div>
-
-          <div class="chart-wrap">
-            <canvas id="chart_patricia"></canvas>
-          </div>
-
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
-
-          <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contacts</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
-          </div>
-
-          <details class="daily-detail">
-            <summary>Daily Breakdown</summary>
-            <table class="daily-table">
-              <thead>
-                <tr>
-                  <th>Day</th><th>Contacts</th><th>Appts Set</th>
-                  <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </details>
-
-          <script>
-            (function() {
-              const ctx = document.getElementById('chart_patricia').getContext('2d');
-              new Chart(ctx, {
-                type: 'line',
-                data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23"],
-                  datasets: [{
-                    label: 'Contacts',
-                    data: [2, 58, 32, 58, 15, 29, 14, 22],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,

@@ -1,0 +1,36 @@
+name: Update Agent Dashboard
+
+on:
+  schedule:
+    # Every Sunday at 11:00 PM Pacific (Monday 6:00 AM UTC)
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pytz
+
+      - name: Generate dashboard
+        env:
+          FILLOUT_API_KEY: ${{ secrets.FILLOUT_API_KEY }}
+        run: python generate_dashboard.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          git diff --staged --quiet || git commit -m "Auto-update dashboard $(date +'%Y-%m-%d')"
+          git push

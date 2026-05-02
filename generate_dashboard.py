@@ -9,7 +9,7 @@ FILLOUT_API_KEY = os.environ["FILLOUT_API_KEY"]
 FORM_ID         = "8NYjecw9G1us"
 OUTPUT_FILE     = "docs/index.html"
 PACIFIC         = pytz.timezone("America/Los_Angeles")
-AGENTS          = ["Sue", "Chase", "Bob", "Marie", "Laura", "Patricia"]
+AGENTS          = ["Sue", "Chase", "Bob", "Marie", "Laura"]
 
 # Column aliases
 COL_NAME        = "Select Your Name"

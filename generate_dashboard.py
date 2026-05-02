@@ -43,6 +43,12 @@ def fetch_submissions():
 # ── Parse into flat rows ──────────────────────────────────────────────────────
 def parse_submissions(responses):
     rows = []
+    def safe_int(val):
+        try:
+            return int(float(str(val).strip()))
+        except (ValueError, TypeError):
+            return 0
+
     for resp in responses:
         # Parse submission date
         submitted_str = resp.get("submittedAt") or resp.get("lastUpdatedAt", "")
@@ -65,12 +71,12 @@ def parse_submissions(responses):
             "date": dt.date(),
             "week_start": (dt.date() - timedelta(days=dt.weekday())),  # Monday
             "name": name,
-            "contacts":   int(answers.get(COL_CONTACTS,  0) or 0),
-            "appt_set":   int(answers.get(COL_APPT_SET,  0) or 0),
-            "appt_comp":  int(answers.get(COL_APPT_COMP, 0) or 0),
-            "contracts":  int(answers.get(COL_CONTRACTS, 0) or 0),
-            "esc_open":   int(answers.get(COL_ESC_OPEN,  0) or 0),
-            "esc_close":  int(answers.get(COL_ESC_CLOSE, 0) or 0),
+            "contacts":   safe_int(answers.get(COL_CONTACTS,  0)),
+            "appt_set":   safe_int(answers.get(COL_APPT_SET,  0)),
+            "appt_comp":  safe_int(answers.get(COL_APPT_COMP, 0)),
+            "contracts":  safe_int(answers.get(COL_CONTRACTS, 0)),
+            "esc_open":   safe_int(answers.get(COL_ESC_OPEN,  0)),
+            "esc_close":  safe_int(answers.get(COL_ESC_CLOSE, 0)),
         })
 
     return rows

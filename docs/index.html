@@ -127,7 +127,7 @@
 <body>
 <div class="dashboard-header">
   <h1>Agent Accountability Dashboard</h1>
-  <div class="updated">Updated May 02, 2026 at 03:35 PM PT &nbsp;·&nbsp; Showing completed weeks only</div>
+  <div class="updated">Updated May 04, 2026 at 05:12 AM PT &nbsp;·&nbsp; Showing completed weeks only</div>
 </div>
 <div class="grid">
 
@@ -141,14 +141,14 @@
             <canvas id="chart_sue"></canvas>
           </div>
 
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+          <div class="week-label">Last Complete Week: Apr 27 – May 3, 2026</div>
 
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">11</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">8</div><div class="kpi-lbl">Contacts</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Escrows Opened</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
           </div>
 
@@ -163,19 +163,19 @@
               </thead>
               <tbody>
             <tr>
-              <td>Wed 4/22</td>
-              <td>8</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>Fri 4/24</td>
+              <td>Tue 4/28</td>
               <td>3</td>
               <td>0</td>
               <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Fri 5/1</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
@@ -189,10 +189,10 @@
               new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "4/13", "4/20"],
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "4/13", "4/20", "4/27"],
                   datasets: [{
                     label: 'Contacts',
-                    data: [1, 10, 8, 19, 18, 12, 17, 9, 3, 14, 9, 21, 11],
+                    data: [1, 10, 8, 19, 18, 12, 17, 9, 3, 14, 9, 21, 11, 8],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,
@@ -228,15 +228,15 @@
             <canvas id="chart_chase"></canvas>
           </div>
 
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+          <div class="week-label">Last Complete Week: Apr 27 – May 3, 2026</div>
 
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">27</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">17</div><div class="kpi-lbl">Contacts</div></div>
             <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Appts Set</div></div>
-            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Appts Completed</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+            <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Escrows Closed</div></div>
           </div>
 
           <details class="daily-detail">
@@ -250,31 +250,31 @@
               </thead>
               <tbody>
             <tr>
-              <td>Mon 4/20</td>
-              <td>12</td>
+              <td>Mon 4/27</td>
+              <td>8</td>
+              <td>2</td>
               <td>1</td>
-              <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
             <tr>
-              <td>Tue 4/21</td>
+              <td>Thu 4/30</td>
               <td>6</td>
               <td>0</td>
+              <td>1</td>
               <td>0</td>
               <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <td>1</td>
             </tr>
             <tr>
-              <td>Wed 4/22</td>
-              <td>9</td>
+              <td>Fri 5/1</td>
+              <td>3</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
               <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
             </tr></tbody>
             </table>
           </details>
@@ -285,10 +285,10 @@
               new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20"],
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20", "4/27"],
                   datasets: [{
                     label: 'Contacts',
-                    data: [3, 17, 8, 20, 15, 12, 20, 18, 19, 13, 16, 8, 21, 23, 30, 27],
+                    data: [3, 17, 8, 20, 15, 12, 20, 18, 19, 13, 16, 8, 21, 23, 30, 27, 17],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,
@@ -324,12 +324,12 @@
             <canvas id="chart_bob"></canvas>
           </div>
 
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+          <div class="week-label">Last Complete Week: Apr 27 – May 3, 2026</div>
 
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contacts</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">21</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Appts Completed</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
@@ -344,7 +344,43 @@
                   <th>Appts Comp</th><th>Contracts</th><th>Esc Open</th><th>Esc Close</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+            <tr>
+              <td>Tue 4/28</td>
+              <td>5</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Wed 4/29</td>
+              <td>6</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Thu 4/30</td>
+              <td>5</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Fri 5/1</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr></tbody>
             </table>
           </details>
 
@@ -354,10 +390,10 @@
               new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23"],
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "4/27"],
                   datasets: [{
                     label: 'Contacts',
-                    data: [11, 16, 40, 77, 52, 43, 14, 75, 99, 52, 61, 6],
+                    data: [11, 16, 40, 77, 52, 43, 14, 75, 99, 52, 61, 6, 21],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,
@@ -393,15 +429,15 @@
             <canvas id="chart_marie"></canvas>
           </div>
 
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+          <div class="week-label">Last Complete Week: Apr 27 – May 3, 2026</div>
 
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">83</div><div class="kpi-lbl">Contacts</div></div>
-            <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Appts Set</div></div>
-            <div class="kpi"><div class="kpi-val">4</div><div class="kpi-lbl">Appts Completed</div></div>
-            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Contracts</div></div>
-            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Escrows Opened</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
+            <div class="kpi"><div class="kpi-val">10</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Escrows Closed</div></div>
           </div>
 
           <details class="daily-detail">
@@ -415,39 +451,21 @@
               </thead>
               <tbody>
             <tr>
-              <td>Tue 4/21</td>
-              <td>6</td>
+              <td>Wed 4/29</td>
+              <td>7</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
               <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
             </tr>
             <tr>
-              <td>Thu 4/23</td>
-              <td>67</td>
-              <td>1</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>Fri 4/24</td>
-              <td>6</td>
-              <td>1</td>
+              <td>Thu 4/30</td>
+              <td>3</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
-            </tr>
-            <tr>
-              <td>Sun 4/26</td>
-              <td>4</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
               <td>0</td>
             </tr></tbody>
             </table>
@@ -459,10 +477,10 @@
               new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20"],
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/9", "3/16", "3/23", "3/30", "4/6", "4/13", "4/20", "4/27"],
                   datasets: [{
                     label: 'Contacts',
-                    data: [6, 31, 7, 16, 28, 10, 31, 30, 24, 35, 12, 22, 31, 3, 63, 83],
+                    data: [6, 31, 7, 16, 28, 10, 31, 30, 24, 35, 12, 22, 31, 3, 63, 83, 10],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,
@@ -498,14 +516,14 @@
             <canvas id="chart_laura"></canvas>
           </div>
 
-          <div class="week-label">Last Complete Week: Apr 20 – Apr 26, 2026</div>
+          <div class="week-label">Last Complete Week: Apr 27 – May 3, 2026</div>
 
           <div class="kpi-row">
-            <div class="kpi"><div class="kpi-val">9</div><div class="kpi-lbl">Contacts</div></div>
+            <div class="kpi"><div class="kpi-val">13</div><div class="kpi-lbl">Contacts</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Set</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Appts Completed</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Contracts</div></div>
-            <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Opened</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Contracts</div></div>
+            <div class="kpi"><div class="kpi-val">1</div><div class="kpi-lbl">Escrows Opened</div></div>
             <div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Escrows Closed</div></div>
           </div>
 
@@ -520,8 +538,17 @@
               </thead>
               <tbody>
             <tr>
-              <td>Fri 4/24</td>
-              <td>9</td>
+              <td>Mon 4/27</td>
+              <td>8</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Wed 4/29</td>
+              <td>5</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
@@ -537,10 +564,10 @@
               new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/16", "4/20"],
+                  labels: ["1/5", "1/12", "1/19", "1/26", "2/2", "2/9", "2/16", "2/23", "3/2", "3/16", "4/20", "4/27"],
                   datasets: [{
                     label: 'Contacts',
-                    data: [5, 27, 25, 42, 31, 21, 33, 14, 12, 8, 9],
+                    data: [5, 27, 25, 42, 31, 21, 33, 14, 12, 8, 9, 13],
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37,99,235,0.08)',
                     borderWidth: 2.5,
